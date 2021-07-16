@@ -1,8 +1,10 @@
 require 'pry'
 
 module Text_Parsers
-  def anagram_checker(str1, str2)
-    str1 = str2
+  def anagram_checker(str)
+    if @text.include?(str)
+      return true
+    end
   end
 end
 
@@ -11,12 +13,6 @@ class AnagramInputs
 
   def initialize(str)
     @text = str
-  end
-
-  def anagram_checker(str)
-    if @text === str
-      return true
-    end
   end
 
 end
