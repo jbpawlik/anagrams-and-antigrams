@@ -1,6 +1,7 @@
 require 'pry'
 
 module Text_Parsers
+  
   def anagram_checker(str)
     array1 = str.downcase.chars.sort
     array2 = @text.downcase.chars.sort
@@ -9,6 +10,7 @@ module Text_Parsers
     else
       return false
     end
+  
   end
 end
 
