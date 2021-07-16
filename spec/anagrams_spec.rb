@@ -18,4 +18,8 @@ describe('anagram_checker') do
     text = AnagramInputs.new('and')
     expect(text.anagram_checker('DaN')).to(eq(true))
   end
+  it("should return false if word contains no vowel") do
+    text = AnagramInputs.new('grnd')
+    expect(text.anagram_checker('dnrg')).to(eq(false))
+  end
 end

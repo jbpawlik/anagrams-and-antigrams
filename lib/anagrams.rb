@@ -1,16 +1,20 @@
 require 'pry'
 
 module Text_Parsers
-  
+
   def anagram_checker(str)
-    array1 = str.downcase.chars.sort
-    array2 = @text.downcase.chars.sort
-    if array1 === array2
-      return true
+    scan = str.scan(/[aeiouy]/)
+    if scan.length > 0
+      array1 = str.downcase.chars.sort
+      array2 = @text.downcase.chars.sort
+      if array1 === array2
+        return true
+      else
+        return false
+      end
     else
       return false
     end
-  
   end
 end
 
