@@ -34,4 +34,4 @@ describe('anagram_checker') do
     text = AnagramInputs.new('Hello! My friend.')
     expect(text.anagram_checker('O! My friend Hell.')).to(eq(true))
   end
-end 
+end
