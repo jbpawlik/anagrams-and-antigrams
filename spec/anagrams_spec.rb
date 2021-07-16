@@ -26,4 +26,8 @@ describe('anagram_checker') do
     text = AnagramInputs.new('grind')
     expect(text.anagram_checker('atoll')).to(eq('No letters match; this is an antigram!'))
   end
+  it("should inform user if only some letters match") do
+    text = AnagramInputs.new('grind')
+    expect(text.anagram_checker('grand')).to(eq('Only some letters match. Try again!'))
+  end
 end
