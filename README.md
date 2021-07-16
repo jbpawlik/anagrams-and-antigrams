@@ -1,37 +1,32 @@
 # __Anagrams and Antigrams__
 
-<img src="src/assets/images/screenshot.png" alt="Currency X Change website screenshot" title="Currency X Change Header" width="400">
-
 ### by [James Benjamin Pawlik](http://github.com/jbpawlik)
 
 ### __Description__
-Currency X Change is a proof-of-concept website for a service that converts and exchanges international currencies. It makes calls to an API that provides forex rates and uses the data returned to set prices.
+Anagrams and Antigrams is a tool to check whether a word or phrase is an anagram. An anagram is a word or phrase that contains the exact letters as another word or phrase.
 
 
 ### __Technologies Used__
-The Currency X Change website is built using HTML, CSS, and Bootstrap. Service and UI logic are written in Javascript and JQuery. API calls are made with Javascript using the Fetch API, then parsed from JSON. Calls are made to ExchangeRate-API, a service that converts currency using forex data. Postman was used to evaluate API calls.
+Anagrams and Ambigrams was created in Ruby. Debugging was handled by the Pry gem. Testing was done with the Rspec gem. A custom Ruby script created the project directory and files. The project includes a script file that allows a user to run the project in their terminal.
 
 ### __Setup/Installation__
-1. Because this project makes calls to an API, it is necessary to register for a free account and API key at [exchangerate-api.com](https://www.exchangerate-api.com/). Click on Get Free Key at the top of the page and follow the instructions.
-2. Download or clone the [repository](http://github.com/jbpawlik/currency-exchanger) to your local machine
-3. Navigate to the top level of the directory
-4. Create an empty file named .env inside the directory
-5. Inside the .env file, write "API_Key=" (without quotes), paste in your API key, and save.
-6. Open the .gitinore file and add .env to the list of ignored files. This will prevent your .env file and API key from being uploaded to GitHub (to protect your key from unauthorized access)
-7. Install Node Package Manager before proceeding with the rest of the instructions
-8. Open a terminal in the top level of the directory and run "npm install"
-9. Run "npm run build"
-10. "npm run start" will open the website in your browser
-11. Any API errors will be reported in a text field on the site. Information about API errors can be found [here](https://blog.runscope.com/posts/how-to-debug-common-api-errors)
+Setup for this project assumes that you have Ruby installed on your personal computer. Ruby can be downloaded [here](https://www.ruby-lang.org/en/downloads/)
+1. Download or clone the [repository](http://github.com/jbpawlik/anagrams-and-antigrams) to your local machine
+2. Navigate to the top level of the directory
+3. Open your terminal in this directory
+4. To check the specifications, type "rspec" without quotes
+5. To use the terminal user interface, type "./anagrams-and-antigrams.rb" in the terminal If the script will not run, use the command "chmod +x anagrams-and-antigrams.rb" to allow your terminal to execute the script
 
 
 ### __Known Bugs / Future Goals__
 No bugs have been found or reported. Please contact the author if you experience poor performance.
 
-Future goals for __Currency X Change__:
+Future goals for __Anagrams and Ambigrams__:
+1. Allow the user to input integers in addition to text
+2. Cross-reference user input with a dictionary gem to ensure that only real words are allowed
+3. Generate anagrams from user input
 
-1. Connect to other financial APIs to track forex price changes
-2. Link to financial news about converted currency
+
 
 ### __License__
 This software is licensed under the [BSD license](license.txt).
