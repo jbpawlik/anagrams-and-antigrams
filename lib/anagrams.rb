@@ -23,7 +23,8 @@ module Text_Parsers
   end
 
   def uneven_input(str)
-    if @text.length != str.length
+    if @text.length != @str.length
+      binding.pry
       return true
     else
       return false
@@ -34,14 +35,14 @@ module Text_Parsers
     words1 = str.split(/[^[[:word:]]]+/)
     words2 = @text.split(/[^[[:word:]]]+/)
     words1.each do |element|
-      vowelArray1 = element.scan(/[aeiouy]/)
+      vowelArray1 = element.scan(/[aeiouyAEIOUY]/)
       if vowelArray1.length === 0
         return false
       else
         words2.each do |element|
-          vowelArray2 = element.scan(/[aeiouy]/)
+          vowelArray2 = element.scan(/[aeiouyAEIOUY]/)
           if vowelArray2.length > 0
-            str = words1.join('').gsub(/\s+/, "")
+            @str = words1.join('').gsub(/\s+/, "")
             @text = words2.join('').gsub(/\s+/, "")
             return true
           end
@@ -59,7 +60,7 @@ module Text_Parsers
 
   def is_anagram(str)
     array1 = @text.downcase.chars.sort
-    array2 = str.downcase.chars.sort
+    array2 = @str.downcase.chars.sort
     if array1.eql?(array2)
       return true
     else
