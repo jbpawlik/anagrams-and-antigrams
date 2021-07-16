@@ -33,7 +33,6 @@ module Text_Parsers
   def vowel_checker(str)
     words1 = str.split(/[^[[:word:]]]+/)
     words2 = @text.split(/[^[[:word:]]]+/)
-    binding.pry
     words1.each do |element|
       vowelArray1 = element.scan(/[aeiouy]/)
       if vowelArray1.length === 0
@@ -42,8 +41,8 @@ module Text_Parsers
         words2.each do |element|
           vowelArray2 = element.scan(/[aeiouy]/)
           if vowelArray2.length > 0
-            @text = words1.join('').gsub(/\s+/, "")
-            str = words2.join('').gsub(/\s+/, "")
+            str = words1.join('').gsub(/\s+/, "")
+            @text = words2.join('').gsub(/\s+/, "")
             return true
           end
         end
