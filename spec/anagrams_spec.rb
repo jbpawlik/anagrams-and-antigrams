@@ -30,4 +30,8 @@ describe('anagram_checker') do
     text = AnagramInputs.new('grind')
     expect(text.anagram_checker('grand')).to(eq('Only some letters match. Try again!'))
   end
+  it("should allow user to input sentences with spaces and punctuation") do
+    text = AnagramInputs.new('Hello! My friend.')
+    expect(text.anagram_checker('O! My friend Hell.')).to(eq(true))
+  end
 end

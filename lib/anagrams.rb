@@ -31,8 +31,11 @@ module Text_Parsers
   end
 
   def vowel_checker(str)
-    scan = str.scan(/[aeiouy]/)
-    if scan.length > 0
+    @text.gsub(/\W+/, ' ')
+    str.gsub(/\W+/, ' ')
+    scan1 = str.scan(/[aeiouy]/)
+    scan2 = str.scan(/[aeiouy]/)
+    if scan1.length > 0 && scan2.length > 0
       return true
     else
       return false
