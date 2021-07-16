@@ -12,19 +12,14 @@ module Text_Parsers
         if array1 === array2
           return true
         else
-          array1.each do |index|
-            if array1[0] != array2[0]
-              array1.shift
-              if array1.length < 1
-               return 'No letters match; this is an antigram!'
-              end
-            end
+          matchArray = array1 - array2
+          if matchArray.length === array1.length
+          return 'No letters match; this is an antigram!'
           return false
           end
         end
       else
-        puts "You need to input actual words!"
-        return false
+        return "You need to input actual words!"
       end
     end
   end

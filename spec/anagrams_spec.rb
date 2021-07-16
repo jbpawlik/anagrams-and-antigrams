@@ -20,7 +20,7 @@ describe('anagram_checker') do
   end
   it("should return false if word contains no vowel") do
     text = AnagramInputs.new('grnd')
-    expect(text.anagram_checker('dnrg')).to(eq(false))
+    expect(text.anagram_checker('dnrg')).to(eq("You need to input actual words!"))
   end
   it("should inform user if word is an antigram") do
     text = AnagramInputs.new('grind')
