@@ -4,18 +4,17 @@ module Text_Parsers
 
   def anagram_checker(str)
     if vowel_checker(str) === false
-      return "You need to input actual words!"
+      puts "You need to input actual words!"
         else
           if uneven_input(str) === true
-            return 'You need to enter the same number of characters if you want to know if something is an anagram!'
+            puts 'You need to enter the same number of characters if you want to know if something is an anagram!'
           else
           if is_anagram(str) === 'antigram'
-            return 'No letters match; this is an antigram!'
+            puts 'No letters match; this is an antigram!'
           elsif is_anagram(str) === false
-            return 'Only some letters match. Try again!'
+            puts 'Only some letters match. Try again!'
           else
             puts "Congratulations, these are anagrams of each other!"
-            return true
           end
         end
       end
@@ -24,7 +23,6 @@ module Text_Parsers
 
   def uneven_input(str)
     if @text.length != @str.length
-      binding.pry
       return true
     else
       return false
@@ -41,7 +39,9 @@ module Text_Parsers
       else
         words2.each do |element|
           vowelArray2 = element.scan(/[aeiouyAEIOUY]/)
-          if vowelArray2.length > 0
+          if vowelArray2.length === 0
+            return false
+          else
             @str = words1.join('').gsub(/\s+/, "")
             @text = words2.join('').gsub(/\s+/, "")
             return true
