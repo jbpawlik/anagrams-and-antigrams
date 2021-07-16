@@ -3,12 +3,12 @@ require 'pry'
 module Text_Parsers
 
   def anagram_checker(str)
-      if uneven_input(str) === true
-        return 'You need to enter the same number of characters if you want to know if something is an anagram!'
-      else
-        if vowel_checker(str) === false
-          return "You need to input actual words!"
+    if vowel_checker(str) === false
+      return "You need to input actual words!"
         else
+          if uneven_input(str) === true
+            return 'You need to enter the same number of characters if you want to know if something is an anagram!'
+          else
           if is_anagram(str) === 'antigram'
             return 'No letters match; this is an antigram!'
           elsif is_anagram(str) === false
@@ -31,15 +31,31 @@ module Text_Parsers
   end
 
   def vowel_checker(str)
-    @text.gsub(/\W+/, ' ')
-    str.gsub(/\W+/, ' ')
-    scan1 = str.scan(/[aeiouy]/)
-    scan2 = str.scan(/[aeiouy]/)
-    if scan1.length > 0 && scan2.length > 0
-      return true
-    else
-      return false
+    words1 = str.split(/[^[[:word:]]]+/)
+    words2 = @text.split(/[^[[:word:]]]+/)
+    binding.pry
+    words1.each do |element|
+      vowelArray1 = element.scan(/[aeiouy]/)
+      if vowelArray1.length === 0
+        return false
+      else
+        words2.each do |element|
+          vowelArray2 = element.scan(/[aeiouy]/)
+          if vowelArray2.length > 0
+            @text = words1.join('').gsub(/\s+/, "")
+            str = words2.join('').gsub(/\s+/, "")
+            return true
+          end
+        end
+      end
     end
+    # scan1 = str.scan(/[aeiouy]/)
+    # scan2 = @text.scan(/[aeiouy]/)
+    # if scan1.length > 0 && scan2.length > 0
+    #   return true
+    # else
+    #   return false
+    # end
   end
 
   def is_anagram(str)
@@ -60,8 +76,8 @@ module Text_Parsers
 
 class AnagramInputs
   include Text_Parsers
-  def initialize(str)
-    @text = str
+  def initialize(string)
+    @text = string
   end
 end
 
