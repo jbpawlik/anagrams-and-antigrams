@@ -2,10 +2,12 @@ require 'pry'
 
 module Text_Parsers
   def anagram_checker(str)
-    array1 = str.chars
-    array2 = @text.chars
-    if array1.sort === array2.sort
+    array1 = str.downcase.chars.sort
+    array2 = @text.downcase.chars.sort
+    if array1 === array2
       return true
+    else
+      return false
     end
   end
 end
