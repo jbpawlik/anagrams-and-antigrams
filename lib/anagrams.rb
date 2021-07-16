@@ -2,7 +2,9 @@ require 'pry'
 
 module Text_Parsers
   def anagram_checker(str)
-    if @text.include?(str)
+    array1 = str.chars
+    array2 = @text.chars
+    if array1.sort === array2.sort
       return true
     end
   end
