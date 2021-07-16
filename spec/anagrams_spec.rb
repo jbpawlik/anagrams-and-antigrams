@@ -22,4 +22,8 @@ describe('anagram_checker') do
     text = AnagramInputs.new('grnd')
     expect(text.anagram_checker('dnrg')).to(eq(false))
   end
+  it("should inform user if word is an antigram") do
+    text = AnagramInputs.new('grind')
+    expect(text.anagram_checker('atoll')).to(eq('No letters match; this is an antigram!'))
+  end
 end
