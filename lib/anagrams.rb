@@ -4,18 +4,19 @@ module Text_Parsers
 
   def anagram_checker(str)
     if vowel_checker(str) === false
-      puts "You need to input actual words!"
-      return "You need to input actual words!"
+      puts "Ths wrds hv n vwls. Pls npt rl wrds!"
+      return "no vowels"
     else
       if uneven_input(str) === true
         puts 'You need to enter the same number of characters to find out whether something is an anagram!'
+        return 'uneven input'
       else
         if is_anagram(str) === 'antigram'
           puts 'No letters match; this is an antigram!'
-          return 'No letters match; this is an antigram!'
+          return 'antigram'
         elsif is_anagram(str) === false
           puts 'Only some letters match. Try again!'
-          return 'Only some letters match. Try again!'
+          return 'partial match'
         else
           puts "Congratulations, these are anagrams of each other!"
           return true
@@ -33,15 +34,15 @@ module Text_Parsers
   end
 
   def vowel_checker(str)
-    words1 = str.split(/[^[[:word:]]]+/)
-    words2 = @text.split(/[^[[:word:]]]+/)
+    words1 = str.downcase.split(/[^[[:word:]]]+/)
+    words2 = @text.downcase.split(/[^[[:word:]]]+/)
     words1.each do |element|
-      vowelArray1 = element.scan(/[aeiouyAEIOUY]/)
+      vowelArray1 = element.scan(/[aeiouy]/)
       if vowelArray1.length === 0
         return false
       else
         words2.each do |element|
-          vowelArray2 = element.scan(/[aeiouyAEIOUY]/)
+          vowelArray2 = element.scan(/[aeiouy]/)
           if vowelArray2.length === 0
             return false
           else
@@ -55,8 +56,8 @@ module Text_Parsers
   end
 
   def is_anagram(str)
-    array1 = @text.downcase.chars.sort
-    array2 = @str.downcase.chars.sort
+    array1 = @text.chars.sort
+    array2 = @str.chars.sort
     if array1.eql?(array2)
       return true
     else
@@ -72,8 +73,8 @@ end
 
 class AnagramInputs
   include Text_Parsers
-  def initialize(string)
-    @text = string
+  def initialize(text)
+    @text = text
   end
 end
 

@@ -18,20 +18,24 @@ describe('anagram_checker') do
     text = AnagramInputs.new('and')
     expect(text.anagram_checker('DaN')).to(eq(true))
   end
-  it("should return false if word contains no vowel") do
+  it("should return 'no vowels' if word contains no vowels") do
     text = AnagramInputs.new('grnd')
-    expect(text.anagram_checker('dnrg')).to(eq("You need to input actual words!"))
+    expect(text.anagram_checker('dnrg')).to(eq('no vowels'))
   end
-  it("should inform user if word is an antigram") do
+  it("should return 'antigram' if word is an antigram") do
     text = AnagramInputs.new('grind')
-    expect(text.anagram_checker('atoll')).to(eq('No letters match; this is an antigram!'))
+    expect(text.anagram_checker('atoll')).to(eq('antigram'))
   end
-  it("should inform user if only some letters match") do
+  it("should return 'partial match' if only some letters match") do
     text = AnagramInputs.new('grind')
-    expect(text.anagram_checker('grand')).to(eq('Only some letters match. Try again!'))
+    expect(text.anagram_checker('grand')).to(eq('partial match'))
   end
   it("should allow user to input sentences with spaces and punctuation") do
     text = AnagramInputs.new('Hello! My friend.')
     expect(text.anagram_checker('O! My friend Hell.')).to(eq(true))
+  end
+  it("should return 'uneven input' if user enters text with different character counts") do
+    text = AnagramInputs.new('blob')
+    expect(text.anagram_checker('blorb')).to(eq('uneven input'))
   end
 end
