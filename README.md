@@ -7,7 +7,7 @@ Anagrams and Antigrams is a tool to check whether a word or phrase is an anagram
 
 
 ### __Technologies Used__
-Anagrams and Ambigrams was created in Ruby. Debugging was handled by the Pry gem. Testing was done with the Rspec gem. A custom Ruby script created the project directory and files. The project includes a script file that allows a user to run the project in their terminal.
+Anagrams and Ambigrams was written in Ruby. Debugging was handled by the Pry gem. Testing was done with the RSpec gem. A custom Ruby script created the project directory and files. The project includes a script file that allows a user to run the project in their terminal.
 
 ### __Setup/Installation__
 Setup for this project assumes that you have Ruby installed on your personal computer. Ruby can be downloaded [here](https://www.ruby-lang.org/en/downloads/)

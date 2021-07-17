@@ -28,8 +28,6 @@ module Text_Parsers
   def uneven_input(str)
     if @text.length != @str.length
       return true
-    else
-      return false
     end
   end
 
@@ -48,7 +46,6 @@ module Text_Parsers
           else
             @str = words1.join('').gsub(/\s+/, "")
             @text = words2.join('').gsub(/\s+/, "")
-            return true
           end
         end
       end
