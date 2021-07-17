@@ -26,9 +26,9 @@ describe('anagram_checker') do
     text = AnagramInputs.new('grind')
     expect(text.anagram_checker('atoll')).to(eq('antigram'))
   end
-  it("should return 'partial match' if only some letters match") do
+  it("should return matching letters if only some letters match") do
     text = AnagramInputs.new('grind')
-    expect(text.anagram_checker('grand')).to(eq('partial match'))
+    expect(text.anagram_checker('grand')).to(eq(["d", "g", "n", "r"]))
   end
   it("should allow user to input sentences with spaces and punctuation") do
     text = AnagramInputs.new('Hello! My friend.')

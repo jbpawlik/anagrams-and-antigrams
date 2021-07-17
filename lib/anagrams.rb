@@ -15,8 +15,8 @@ module Text_Parsers
           puts 'No letters match; this is an antigram!'
           return 'antigram'
         elsif is_anagram(str) === false
-          puts 'Only some letters match. Try again!'
-          return 'partial match'
+          puts "Only these letters match: #{@matchingLetters.join(', ')}. Try again!"
+          return @matchingLetters
         else
           puts "Congratulations, these are anagrams of each other!"
           return true
@@ -64,7 +64,8 @@ module Text_Parsers
       matchArray = array1 - array2
       if matchArray.length === array1.length
         return 'antigram'
-      else
+      elsif
+        @matchingLetters = array1 - matchArray
         return false
       end
     end
